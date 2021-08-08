@@ -1,7 +1,5 @@
-export default function NotFoundView() {
-  return (
-    <>
-      <p>404</p>
-    </>
-  );
-}
+const NotFoundView = () => {
+  return <h1>404 Page is not found</h1>;
+};
+
+export default NotFoundView;

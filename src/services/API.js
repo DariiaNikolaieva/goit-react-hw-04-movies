@@ -45,7 +45,6 @@ async function getMovieDetails(movieId) {
 async function getMovieCredits(movieId) {
   const { data } = await axios
     .get(`/movie/${movieId}/credits`)
-    .then((data) => data)
     .catch(function (error) {
       toast.error(error);
     });
@@ -55,7 +54,6 @@ async function getMovieCredits(movieId) {
 async function getMovieReviews(movieId) {
   const { data } = await axios
     .get(`/movie/${movieId}/reviews`)
-    .then((data) => data)
     .catch(function (error) {
       toast.error(error);
     });

@@ -4,17 +4,19 @@ import {
   useHistory,
   useLocation,
   useRouteMatch,
+  NavLink,
+  Route,
+  Switch,
 } from "react-router-dom";
-import { getMovieDetails } from "../../services/API";
-
-const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+import { getMovieDetails, BASE_IMAGE_URL } from "../../services/API";
+import Cast from "../Cast/Cast";
 
 const MovieDetailsPage = () => {
   const history = useHistory();
   const location = useLocation();
 
-  const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const { movieId } = useParams();
   const { url, path } = useRouteMatch();
 
   useEffect(() => {
@@ -54,6 +56,18 @@ const MovieDetailsPage = () => {
                 </p>
               </div>
             </div>
+            <nav>
+              <NavLink to={`${url}/cast`}>Cast</NavLink>
+              {/* <NavLink to={`${url}/reviews`}>Reviews</NavLink> */}
+            </nav>
+            <Switch>
+              <Route path={`${path}/cast`}>
+                <Cast />
+              </Route>
+              {/* <Route path={`${path}/reviews`}>
+                <Reviews />
+              </Route> */}
+            </Switch>
           </div>
         </>
       )}

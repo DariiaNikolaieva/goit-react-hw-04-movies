@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = "5d3faae6bdf27d6ad967dd7060912758";
+const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 
 async function getTrendingMovies() {
   const { data } = await axios
@@ -39,13 +40,10 @@ async function getMovieDetails(movieId) {
 }
 
 async function getMovieCredits(movieId) {
-  const { data } = await axios
-    .get(
-      `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
-    )
-    .catch(function (error) {
-      toast.error(error);
-    });
+  const { data } = await axios.get(
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  );
+  // .then((data) => data);
   return data.cast;
 }
 
@@ -66,4 +64,5 @@ export {
   getMovieDetails,
   getMovieCredits,
   getMovieReviews,
+  BASE_IMAGE_URL,
 };

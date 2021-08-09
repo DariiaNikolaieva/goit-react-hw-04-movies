@@ -1,4 +1,4 @@
-import CastItem from "../CastItem";
+import CastItem from "../CastItem/CastItem";
 
 const CastList = ({ cast }) => {
   return (

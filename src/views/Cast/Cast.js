@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { getMovieCredits, BASE_IMAGE_URL } from "../../services/API";
 import { useParams } from "react-router-dom";
-import CastList from "../../components/CastItem/CastList/CastList";
+import { getMovieCredits } from "../../services/API";
+import CastList from "../../components/CastList/CastList";
 
 const MovieCast = () => {
   const [cast, setCast] = useState([]);

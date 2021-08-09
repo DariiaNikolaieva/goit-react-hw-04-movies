@@ -6,6 +6,7 @@ import AppBar from "./components/AppBar/AppBar";
 import HomePage from "./views/HomePage/HomePage";
 import NotFoundView from "./views/NotFoundView";
 import MovieDetailsPage from "./views/MovieDetailsPage/MovieDetailsPage";
+import MoviesPage from "./views/MoviesPage/MoviesPage";
 
 const App = () => {
   return (
@@ -15,6 +16,10 @@ const App = () => {
       <Switch>
         <Route path="/" exact>
           <HomePage />
+        </Route>
+
+        <Route path="/movies" exact>
+          <MoviesPage />
         </Route>
 
         <Route path="/movies/:movieId">

@@ -40,10 +40,11 @@ async function getMovieDetails(movieId) {
 }
 
 async function getMovieCredits(movieId) {
-  const { data } = await axios.get(
-    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
-  );
-  // .then((data) => data);
+  const { data } = await axios
+    .get(
+      `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+    )
+    .then((data) => data);
   return data.cast;
 }
 
@@ -52,9 +53,7 @@ async function getMovieReviews(movieId, page = 1) {
     .get(
       `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=${page}`
     )
-    .catch(function (error) {
-      toast.error(error);
-    });
+    .then((data) => data);
   return data.results;
 }
 

@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { getMovieDetails, BASE_IMAGE_URL } from "../../services/API";
 import Cast from "../Cast/Cast";
+import Reviews from "../Reviews/Reviews";
 
 const MovieDetailsPage = () => {
   const history = useHistory();
@@ -40,8 +41,9 @@ const MovieDetailsPage = () => {
           <div>
             <div>
               <img
-                src={BASE_IMAGE_URL + movie.poster_path}
+                src={`${BASE_IMAGE_URL}${movie.poster_path}`}
                 alt={movie.original_title}
+                width="250"
               />
               <div>
                 <h2>{movie.original_title}</h2>
@@ -58,15 +60,15 @@ const MovieDetailsPage = () => {
             </div>
             <nav>
               <NavLink to={`${url}/cast`}>Cast</NavLink>
-              {/* <NavLink to={`${url}/reviews`}>Reviews</NavLink> */}
+              <NavLink to={`${url}/reviews`}>Reviews</NavLink>
             </nav>
             <Switch>
               <Route path={`${path}/cast`}>
                 <Cast />
               </Route>
-              {/* <Route path={`${path}/reviews`}>
+              <Route path={`${path}/reviews`}>
                 <Reviews />
-              </Route> */}
+              </Route>
             </Switch>
           </div>
         </>

@@ -1,35 +1,15 @@
 import { useState, useEffect } from "react";
-import { Link, useRouteMatch } from "react-router-dom";
 import { getTrendingMovies } from "../../services/API";
-import { toast } from "react-toastify";
+import MoviesList from "../../components/MoviesList/MoviesList";
 
 const HomePage = () => {
-  const { url } = useRouteMatch();
-  const [trendingMoviesList, setTrendingMoviesList] = useState(null);
+  const [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    getTrendingMovies()
-      .then(({ results }) => setTrendingMoviesList(results))
-      .catch(function (error) {
-        toast.error(error);
-      });
+    getTrendingMovies().then(({ results }) => setMovies(results));
   }, []);
 
-  return (
-    <div>
-      {trendingMoviesList && (
-        <ul>
-          {trendingMoviesList.map((trendingMoviesItem) => (
-            <li key={trendingMoviesItem.id}>
-              <Link to={`${url}/${trendingMoviesItem.id}`}>
-                {trendingMoviesItem.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
+  return <>{movies && <MoviesList movies={movies} />}</>;
 };
 
 export default HomePage;

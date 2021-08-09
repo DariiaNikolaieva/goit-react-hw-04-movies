@@ -3,30 +3,25 @@ import {
   useParams,
   useHistory,
   useLocation,
-  //   useRouteMatch,
+  useRouteMatch,
 } from "react-router-dom";
 import { getMovieDetails } from "../../services/API";
-import { toast } from "react-toastify";
 
-const imageURL = "https://image.tmdb.org/t/p/w500/";
+const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 
 const MovieDetailsPage = () => {
   const history = useHistory();
   const location = useLocation();
 
-  console.log(history);
-  console.log(location);
-
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  //   const { url, path } = useRouteMatch();
+  const { url, path } = useRouteMatch();
 
   useEffect(() => {
-    getMovieDetails(movieId)
-      .then((movie) => setMovie(movie))
-      .catch(function (error) {
-        toast.error(error);
-      });
+    getMovieDetails(movieId).then(
+      ({ poster_path, original_title, vote_average, overview }) =>
+        setMovie({ poster_path, original_title, vote_average, overview })
+    );
   }, [movieId]);
 
   const onGoBack = () => {
@@ -43,7 +38,7 @@ const MovieDetailsPage = () => {
           <div>
             <div>
               <img
-                src={imageURL + movie.poster_path}
+                src={BASE_IMAGE_URL + movie.poster_path}
                 alt={movie.original_title}
               />
               <div>

@@ -25,31 +25,32 @@ const NotFoundView = lazy(() =>
 
 const App = () => {
   return (
-    <Container>
-      <ToastContainer autoClose={3000} />
-
+    <>
       <AppBar />
+      <Container>
+        <ToastContainer autoClose={3000} />
 
-      <Suspense fallback={<LoaderSpinner />}>
-        <Switch>
-          <Route path="/" exact>
-            <HomePage />
-          </Route>
+        <Suspense fallback={<LoaderSpinner />}>
+          <Switch>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
 
-          <Route path="/movies" exact>
-            <MoviesPage />
-          </Route>
+            <Route path="/movies" exact>
+              <MoviesPage />
+            </Route>
 
-          <Route path="/movies/:movieId">
-            <MovieDetailsPage />
-          </Route>
+            <Route path="/movies/:movieId">
+              <MovieDetailsPage />
+            </Route>
 
-          <Route>
-            <NotFoundView />
-          </Route>
-        </Switch>
-      </Suspense>
-    </Container>
+            <Route>
+              <NotFoundView />
+            </Route>
+          </Switch>
+        </Suspense>
+      </Container>
+    </>
   );
 };
 

@@ -15,7 +15,7 @@ const MoviesPage = () => {
     }
     getMoviesBySearch(query).then(({ results }) => {
       if (results.length === 0) {
-        toast.error("Try again");
+        toast.error("No results. Try another query");
         return;
       }
       setMovies(results);

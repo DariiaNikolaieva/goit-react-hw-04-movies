@@ -8,7 +8,7 @@ const LoaderSpinner = () => {
     <Loader
       className={styles.Loader}
       type="ThreeDots"
-      color="#2196f3"
+      color="#fc0362"
       height={80}
       width={80}
     />

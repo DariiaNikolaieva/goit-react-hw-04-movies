@@ -1,0 +1,13 @@
+.item {
+  margin-bottom: 5px;
+}
+
+.link {
+  text-decoration: none;
+  color: #2a363b;
+}
+
+.link:hover,
+.link:focus {
+  color: #fc0362;
+}

@@ -1,3 +1,13 @@
+.Navigation__container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  padding: 0 15px;
+}
+
+.Navigation {
+}
+
 .link {
   display: inline-block;
   text-decoration: none;
@@ -9,5 +19,5 @@
 
 .activeLink {
   composes: link;
-  color: #2196f3;
+  color: #fc0362;
 }

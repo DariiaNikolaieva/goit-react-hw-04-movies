@@ -10,6 +10,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { getMovieDetails, BASE_IMAGE_URL } from "../../services/API";
+import styles from "./MovieDetailsPage.module.css";
 
 const Cast = lazy(() => import("../Cast/Cast" /* webpackChunkName:"cast"*/));
 const Reviews = lazy(() =>
@@ -39,32 +40,43 @@ const MovieDetailsPage = () => {
     <>
       {movie && (
         <>
-          <button type="button" onClick={onGoBack}>
-            Go Back
+          <button className={styles.button} type="button" onClick={onGoBack}>
+            &#8592; Go Back
           </button>
           <div>
-            <div>
+            <div className={styles.movie_card}>
               <img
+                className={styles.image}
                 src={`${BASE_IMAGE_URL}${movie.poster_path}`}
                 alt={movie.original_title}
                 width="250"
               />
-              <div>
+              <div className={styles.movie_info}>
                 <h2>{movie.original_title}</h2>
-                <p>
-                  User score: <span>{movie.vote_average}</span>
+                <p className={styles.info_item}>
+                  User score:
+                  <span className={styles.info_sum}>{movie.vote_average}</span>
                 </p>
-                <p>
-                  Overview: <span>{movie.overview}</span>
+                <p className={styles.info_item}>
+                  Overview:
+                  <span className={styles.info_sum}>{movie.overview}</span>
                 </p>
-                <p>
-                  Genres: <span>{movie.genres}</span>
+                <p className={styles.info_item}>
+                  Genres:
+                  <span className={styles.info_sum}>
+                    {/* {movie.genres.map((genre) => genre.name).join(" / ")} */}
+                  </span>
                 </p>
               </div>
             </div>
+            <p className={styles.link}>Additional Information</p>
             <nav>
-              <NavLink to={`${url}/cast`}>Cast</NavLink>
-              <NavLink to={`${url}/reviews`}>Reviews</NavLink>
+              <NavLink className={styles.link} to={`${url}/cast`}>
+                Cast
+              </NavLink>
+              <NavLink className={styles.link} to={`${url}/reviews`}>
+                Reviews
+              </NavLink>
             </nav>
             <Suspense>
               <Switch>

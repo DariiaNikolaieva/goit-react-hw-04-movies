@@ -1,0 +1,66 @@
+.button {
+  margin-bottom: 25px;
+  padding: 5px 10px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  display: inline-block;
+  color: #2a363b;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 24px;
+  font-style: normal;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.button:hover,
+.button:focus {
+  color: #fc0362;
+}
+
+.movie_card {
+  display: flex;
+}
+
+.image {
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.movie_info {
+  margin-left: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.info_item {
+  font-weight: 700;
+  color: #2a363b;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.info_sum {
+  margin-left: 5px;
+  font-weight: 400;
+  color: #2a363b;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.link {
+  text-decoration: none;
+  color: #2a363b;
+  margin-right: 15px;
+}
+
+.link:hover,
+.link:focus {
+  color: #fc0362;
+}

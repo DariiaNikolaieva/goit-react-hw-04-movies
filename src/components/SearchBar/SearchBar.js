@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import styles from "./SearchBar.module.css";
 
 const SearchBar = ({ onSubmit }) => {
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
 
   const handleInputChange = (event) => {
     setQuery(event.target.value.toLowerCase());

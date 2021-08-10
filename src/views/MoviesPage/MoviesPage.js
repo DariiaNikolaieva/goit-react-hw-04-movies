@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { getMoviesBySearch } from "../../services/API";
 import MoviesList from "../../components/MoviesList/MoviesList";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import PageHeading from "../../components/PageHeading/PageHeading";
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState(null);
@@ -28,6 +29,7 @@ const MoviesPage = () => {
   return (
     <>
       <SearchBar onSubmit={onSubmit} />
+      <PageHeading text={query} />
       {movies && <MoviesList movies={movies} />}
     </>
   );

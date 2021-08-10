@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { useState, useEffect } from "react";
 import {
   useParams,
@@ -9,8 +10,11 @@ import {
   Switch,
 } from "react-router-dom";
 import { getMovieDetails, BASE_IMAGE_URL } from "../../services/API";
-import Cast from "../Cast/Cast";
-import Reviews from "../Reviews/Reviews";
+
+const Cast = lazy(() => import("../Cast/Cast" /* webpackChunkName:"cast"*/));
+const Reviews = lazy(() =>
+  import("../Reviews/Reviews" /* webpackChunkName:"reviews"*/)
+);
 
 const MovieDetailsPage = () => {
   const history = useHistory();
@@ -62,14 +66,16 @@ const MovieDetailsPage = () => {
               <NavLink to={`${url}/cast`}>Cast</NavLink>
               <NavLink to={`${url}/reviews`}>Reviews</NavLink>
             </nav>
-            <Switch>
-              <Route path={`${path}/cast`}>
-                <Cast />
-              </Route>
-              <Route path={`${path}/reviews`}>
-                <Reviews />
-              </Route>
-            </Switch>
+            <Suspense>
+              <Switch>
+                <Route path={`${path}/cast`}>
+                  <Cast />
+                </Route>
+                <Route path={`${path}/reviews`}>
+                  <Reviews />
+                </Route>
+              </Switch>
+            </Suspense>
           </div>
         </>
       )}

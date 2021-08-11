@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+
+import routePath from "../../../routesPath";
 
 const Cast = lazy(() =>
   import("../../../views/Cast/Cast" /* webpackChunkName:"cast"*/)
@@ -9,14 +11,13 @@ const Reviews = lazy(() =>
 );
 
 const MovieAddInfoRoute = () => {
-  const { path } = useRouteMatch();
   return (
     <Suspense>
       <Switch>
-        <Route path={`${path}/cast`}>
+        <Route path={routePath.cast}>
           <Cast />
         </Route>
-        <Route path={`${path}/reviews`}>
+        <Route path={routePath.reviews}>
           <Reviews />
         </Route>
       </Switch>

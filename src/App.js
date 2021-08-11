@@ -8,6 +8,8 @@ import AppBar from "./components/AppBar/AppBar";
 import { ToastContainer } from "react-toastify";
 import LoaderSpinner from "./components/Loader/Loader";
 
+import routePath from "./routesPath";
+
 import "react-toastify/dist/ReactToastify.css";
 
 const HomePage = lazy(() =>
@@ -34,15 +36,15 @@ const App = () => {
 
         <Suspense fallback={<LoaderSpinner />}>
           <Switch>
-            <Route path="/" exact>
+            <Route path={routePath.home} exact>
               <HomePage />
             </Route>
 
-            <Route path="/movies" exact>
+            <Route path={routePath.movies} exact>
               <MoviesPage />
             </Route>
 
-            <Route path="/movies/:movieId">
+            <Route path={routePath.details}>
               <MovieDetailsPage />
             </Route>
 

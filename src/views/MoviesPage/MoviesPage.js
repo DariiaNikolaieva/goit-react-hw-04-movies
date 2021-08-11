@@ -15,15 +15,17 @@ const MoviesPage = () => {
     }
     getMoviesBySearch(query).then(({ results }) => {
       if (results.length === 0) {
-        toast.error("No results. Try another query");
+        toast.error("There are no results. Try another query");
         return;
       }
       setMovies(results);
+      toast.success("Movies on your query");
     });
   }, [query]);
 
   const onSubmit = (query) => {
     setQuery(query);
+    setMovies([]);
   };
 
   return (

@@ -9,7 +9,8 @@ const CastItem = ({ actor }) => {
         width="100"
       />
       <p>{actor.name}</p>
-      <p>Character: {actor.character}</p>
+      <p>Character: </p>
+      <p>{actor.character}</p>
     </li>
   );
 };

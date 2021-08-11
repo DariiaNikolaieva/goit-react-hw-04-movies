@@ -27,8 +27,14 @@ const MovieDetailsPage = () => {
 
   useEffect(() => {
     getMovieDetails(movieId).then(
-      ({ poster_path, original_title, vote_average, overview }) =>
-        setMovie({ poster_path, original_title, vote_average, overview })
+      ({ poster_path, original_title, vote_average, overview, genres }) =>
+        setMovie({
+          poster_path,
+          original_title,
+          vote_average,
+          overview,
+          genres,
+        })
     );
   }, [movieId]);
 
@@ -64,12 +70,12 @@ const MovieDetailsPage = () => {
                 <p className={styles.info_item}>
                   Genres:
                   <span className={styles.info_sum}>
-                    {/* {movie.genres.map((genre) => genre.name).join(" / ")} */}
+                    {movie.genres.map((genre) => genre.name).join(" / ")}
                   </span>
                 </p>
               </div>
             </div>
-            <p className={styles.link}>Additional Information</p>
+            <p className={styles.add_title}>Additional Information</p>
             <nav>
               <NavLink className={styles.link} to={`${url}/cast`}>
                 Cast

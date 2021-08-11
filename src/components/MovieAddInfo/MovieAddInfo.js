@@ -1,17 +1,10 @@
-import { lazy, Suspense } from "react";
-import { useRouteMatch, NavLink, Route, Switch } from "react-router-dom";
+import { useRouteMatch, NavLink } from "react-router-dom";
+import MovieAddInfoRoute from "./Routing/Routing";
 
 import styles from "./MovieAddInfo.module.css";
 
-const Cast = lazy(() =>
-  import("../../views/Cast/Cast" /* webpackChunkName:"cast"*/)
-);
-const Reviews = lazy(() =>
-  import("../../views/Reviews/Reviews" /* webpackChunkName:"reviews"*/)
-);
-
 const MovieAddInfo = () => {
-  const { url, path } = useRouteMatch();
+  const { url } = useRouteMatch();
   return (
     <div>
       <p className={styles.add_title}>Additional Information</p>
@@ -23,16 +16,7 @@ const MovieAddInfo = () => {
           Reviews
         </NavLink>
       </nav>
-      <Suspense>
-        <Switch>
-          <Route path={`${path}/cast`}>
-            <Cast />
-          </Route>
-          <Route path={`${path}/reviews`}>
-            <Reviews />
-          </Route>
-        </Switch>
-      </Suspense>
+      <MovieAddInfoRoute />
     </div>
   );
 };

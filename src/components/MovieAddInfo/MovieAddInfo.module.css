@@ -1,0 +1,16 @@
+.add_title {
+  margin-top: 25px;
+  color: #2a363b;
+  font-weight: 600;
+}
+
+.link {
+  text-decoration: none;
+  color: #2a363b;
+  margin-right: 15px;
+}
+
+.link:hover,
+.link:focus {
+  color: #fc0362;
+}

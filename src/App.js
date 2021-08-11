@@ -8,6 +8,8 @@ import AppBar from "./components/AppBar/AppBar";
 import { ToastContainer } from "react-toastify";
 import LoaderSpinner from "./components/Loader/Loader";
 
+import "react-toastify/dist/ReactToastify.css";
+
 const HomePage = lazy(() =>
   import("./views/HomePage/HomePage" /* webpackChunkName: "home-page"*/)
 );
